@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessMonitorOSA", "ProcessMonitorOSA\ProcessMonitorOSA.csproj", "{80BB0F70-DFDE-44B3-8A67-E415D81D360E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80BB0F70-DFDE-44B3-8A67-E415D81D360E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80BB0F70-DFDE-44B3-8A67-E415D81D360E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80BB0F70-DFDE-44B3-8A67-E415D81D360E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80BB0F70-DFDE-44B3-8A67-E415D81D360E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DD1B714-6C3C-4D09-8338-DF8C394F1F86}
+	EndGlobalSection
+EndGlobal
