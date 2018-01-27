@@ -11,8 +11,7 @@ namespace ProcessMonitor
         //Main segment of the program
         static void Main(string[] args)
         {
-            
-            Console.WriteLine("Please specify the location of the White List: ");
+                        Console.WriteLine("Please specify the location of the White List: ");
             UserSettings.WhiteListLocation = Console.ReadLine();
             Console.WriteLine(UserSettings.WhiteListLocation);
 
