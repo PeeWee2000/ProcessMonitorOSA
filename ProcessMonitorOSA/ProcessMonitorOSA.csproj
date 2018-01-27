@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <StartupObject></StartupObject>
     <SignAssembly>false</SignAssembly>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
 </Project>
