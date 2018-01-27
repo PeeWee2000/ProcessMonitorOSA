@@ -11,13 +11,14 @@ namespace ProcessMonitor
         //Main segment of the program
         static void Main(string[] args)
         {
-            //UserSettings Waef = new UserSettings();
-            //Waef.WhiteListLocation = "1";
-            //Console.WriteLine(Waef.WhiteListLocation);
-            File.Delete("C:\\Temp\\SafeProccesses.txt");
+            
+            Console.WriteLine("Please specify the location of the White List: ");
+            UserSettings.WhiteListLocation = Console.ReadLine();
+            Console.WriteLine(UserSettings.WhiteListLocation);
+
             //Check to see if there is a safe list, if not create one
-            if (File.Exists("C:\\Temp\\SafeProccesses.txt") == false)
-            {
+            if (File.Exists(UserSettings.WhiteListLocation) == false)
+                   {
                 Baseline.GenerateInitialBaseline();
             }
             else

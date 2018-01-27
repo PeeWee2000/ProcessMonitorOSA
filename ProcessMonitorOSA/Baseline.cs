@@ -13,7 +13,8 @@ namespace ProcessMonitor
 
             List<string> RunningProcesses = new List<string>();
             List<String> Distincts = new List<string>();
-            StreamWriter writer = new StreamWriter("C:\\Temp\\SafeProccesses.txt");
+            UserSettings settings = new UserSettings();
+            StreamWriter writer = new StreamWriter(UserSettings.WhiteListLocation);
             Process[] localAll = Process.GetProcesses();
             Console.WriteLine("Writing currently running process to file...");
 
@@ -49,16 +50,17 @@ namespace ProcessMonitor
 
 
             //Give the user an opportnity to review captured processes
-            Console.WriteLine("Please check C:\\Temp\\Safeprocesses.txt and delete any processes you do not wish to allow, once finished press enter to continue...");
+            Console.WriteLine("Please check " + UserSettings.WhiteListLocation + " and delete any processes you do not wish to allow, once finished press enter to continue...");
             Console.ReadLine();
             AppendToBaseline();
         }
         public static void AppendToBaseline()
         {
                  List<string> SafeList = new List<string>();
-                
-                //Get items currently listed in safelist
-                foreach (string line in File.ReadAllLines(@"C:\Temp\SafeProccesses.txt"))
+            UserSettings settings = new UserSettings();
+
+            //Get items currently listed in safelist
+            foreach (string line in File.ReadAllLines(UserSettings.WhiteListLocation))
                 {
                  SafeList.Add(line);
                 }
@@ -93,7 +95,7 @@ namespace ProcessMonitor
                     {
                      if (SafeList.Contains(RunningProcess) == false)
                         {
-                        StreamWriter writer = File.AppendText("C:\\Temp\\SafeProccesses.txt");
+                        StreamWriter writer = File.AppendText(UserSettings.WhiteListLocation);
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("New process detected, whitelisting: ");
                         Console.WriteLine(RunningProcess);

@@ -8,7 +8,7 @@ namespace ProcessMonitor
 {
     class UserSettings
     {
-        public string WhiteListLocation
+        public static string WhiteListLocation
         { get; set; }
     }
 }

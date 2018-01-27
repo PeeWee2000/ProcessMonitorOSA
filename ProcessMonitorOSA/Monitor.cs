@@ -16,9 +16,10 @@ namespace ProcessMonitor
             List<string> SafeList = new List<string>();
             int Index;
             String Trimmed;
+            UserSettings settings = new UserSettings();
 
             //Run through the running processlist and compare it to the safe list
-            foreach (string line in File.ReadAllLines(@"C:\Temp\SafeProccesses.txt"))
+            foreach (string line in File.ReadAllLines(UserSettings.WhiteListLocation))
             {
                 Index = line.IndexOf("~");
                 Trimmed = (Index > 0 ? line.Substring(0, Index) : "");
@@ -40,7 +41,7 @@ namespace ProcessMonitor
                             Console.WriteLine("Illegal process detected: " + IndividualProcess.ProcessName);
                             Console.WriteLine(IndividualProcess.MainModule.FileVersionInfo);
                             Console.WriteLine("Entry Point: " + IndividualProcess.MainModule.EntryPointAddress);
-                            //IndividualProcess.Kill();
+                            IndividualProcess.Kill();
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("Process terminated");
                         }
