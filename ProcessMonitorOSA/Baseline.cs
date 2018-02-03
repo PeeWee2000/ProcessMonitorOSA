@@ -55,7 +55,7 @@ namespace ProcessMonitor
             AppendToBaseline();
         }
         public static void AppendToBaseline()
-        {
+        { 
                  List<string> SafeList = new List<string>(); 
             UserSettings settings = new UserSettings();
 
