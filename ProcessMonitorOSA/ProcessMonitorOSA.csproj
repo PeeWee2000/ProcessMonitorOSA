@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0;net40</TargetFramework>
+    <TargetFrameworks>netcoreapp2.0;net40</TargetFrameworks>
     <StartupObject></StartupObject>
     <SignAssembly>false</SignAssembly>
     <Platforms>AnyCPU</Platforms>
