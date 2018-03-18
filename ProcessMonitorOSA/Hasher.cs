@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace ProcessMonitor
+namespace ProcessMonitorOSA
 {
     class Hasher
     {

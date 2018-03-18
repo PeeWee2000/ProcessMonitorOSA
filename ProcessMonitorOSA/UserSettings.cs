@@ -1,14 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace ProcessMonitor
+namespace ProcessMonitorOSA
 {
     class UserSettings
     {
         public static string WhiteListLocation
-        { get; set; }
+        {
+            get
+            {
+                if (OS.WhatIs() == "win")
+                { return TextReader.GetText(@"(?<=WindowsWhiteList=).*$", "Settings.txt"); }
+                else if (OS.WhatIs() == "gnu")
+                { return TextReader.GetText(@"(?<=LinuxWhiteList=).*$", "Settings.txt"); }
+                else return ("Unknown OS detected");
+            }
+            set { }
+        }
+        public static bool AppendMode
+        { get
+            { if (TextReader.GetText(@"(?<=AppendMode=).*$", "Settings.txt") == "True")
+                { return true; }
+                else { return false; }
+            }
+        }
+        
     }
 }
+

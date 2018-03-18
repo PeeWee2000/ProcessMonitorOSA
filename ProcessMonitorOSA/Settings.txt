@@ -1,0 +1,3 @@
+﻿WindowsWhiteList=C:\temp\SafeProcesses.txt
+LinuxWhiteList=C:\temp\SafeProcesses.txt
+AppendMode=False

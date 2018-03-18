@@ -5,7 +5,7 @@ using System.IO;
 
 
 
-namespace ProcessMonitor
+namespace ProcessMonitorOSA
 {
     class Monitor
     {
@@ -17,6 +17,10 @@ namespace ProcessMonitor
             int Index;
             String Trimmed;
             UserSettings settings = new UserSettings();
+            var Enviroment = ProcessMonitorOSA.OS.WhatIs();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Program running...");
+            Console.ForegroundColor = ConsoleColor.Gray;
 
             //Run through the running processlist and compare it to the safe list
             foreach (string line in File.ReadAllLines(UserSettings.WhiteListLocation))
@@ -44,6 +48,21 @@ namespace ProcessMonitor
                             IndividualProcess.Kill();
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("Process terminated");
+                            if (Enviroment == "win")
+                            //eventcreate /ID 1 /L APPLICATION /T INFORMATION  /SO MYEVENTSOURCE /D "My first log"
+                            {
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                Console.WriteLine((@"eventcreate /ID 666 /L APPLICATION /T WARNING /SO " + @"""CCDC Process Monitor""" + " /D " + IndividualProcess.ProcessName).Term().stdout);
+                            }
+                            else if (Enviroment == "gnu")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                Console.WriteLine((@"eventcreate /ID 666 /L APPLICATION /T WARNING /SO " + @"""CCDC Process Monitor""" + " /D " + IndividualProcess.ProcessName).Term().stdout);
+                            }
+                            else if (Enviroment == "mac")
+                            { }
+
+
                         }
                         catch { };
 
